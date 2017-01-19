@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>learn-webservices-jaxws-stubs</artifactId>
+	<packaging>jar</packaging>
+
+	<name>learn-webservices-jaxws-stubs</name>
+	<description>Learn how to integrate with JAX-WS Based Web Services - Stubs</description>
+
+	<parent>
+		<groupId>io.github.learnwsjaxws</groupId>
+		<artifactId>learn-webservices-jaxws</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jvnet.jax-ws-commons</groupId>
+				<artifactId>jaxws-maven-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>wsimport</goal>
+						</goals>
+						<configuration>
+							<verbose>true</verbose>
+							<target>2.1</target>
+							<vmArgs>
+								<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+							</vmArgs>
+							<wsdlFiles>
+								<wsdlFile>${basedir}/src/main/resources/META-INF/services/service.wsdl</wsdlFile>
+							</wsdlFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

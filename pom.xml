@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>io.github.learnwsjaxws</groupId>
+	<artifactId>learn-webservices-jaxws</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>learn-webservices-jaxws</name>
+	<description>Learn how to integrate with JAX-WS Based Web Services</description>
+
+	<parent>
+		<groupId>io.spring.platform</groupId>
+		<artifactId>platform-bom</artifactId>
+		<version>Athens-SR1</version>
+	</parent>
+
+	<modules>
+		<module>learn-webservices-jaxws-stubs</module>
+		<module>learn-webservices-jaxws-server</module>
+		<module>learn-webservices-jaxws-client</module>
+	</modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.jvnet.jax-ws-commons</groupId>
+										<artifactId>jaxws-maven-plugin</artifactId>
+										<versionRange>[1.0.0,)</versionRange>
+										<goals>
+											<!-- plugin goals -->
+											<goal>wsimport</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<!-- M2E should ignore the plugin -->
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
