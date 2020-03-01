@@ -13,14 +13,12 @@ import java.util.Map;
 import javax.xml.namespace.QName;
 import javax.xml.ws.BindingProvider;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.context.embedded.LocalServerPort;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import io.github.learnjaxws.ws.AircraftInterface;
 import io.github.learnjaxws.ws.AircraftService;
@@ -32,7 +30,6 @@ import io.github.learnjaxws.ws.schemas.AircraftType;
 import io.github.learnjaxws.ws.schemas.ManufacturerType;
 
 @ActiveProfiles("unittest")
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class LearnJaxwsServerApplicationTests {
 
@@ -41,7 +38,7 @@ public class LearnJaxwsServerApplicationTests {
 
 	private AircraftInterface aircraftInterface;
 
-	@Before
+	@BeforeEach
 	public void setup() {
 		String endpoint = String.format("http://localhost:%d/ws/AircraftService", testServerPort);
 		URL wsdlLocation = AircraftService.class.getResource("/META-INF/services/service.wsdl");
@@ -50,6 +47,9 @@ public class LearnJaxwsServerApplicationTests {
 		this.aircraftInterface = aircraftService.getAircraftInterfaceBinding();
 		Map<String, Object> requestContext = ((BindingProvider) aircraftInterface).getRequestContext();
 		requestContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpoint);
+		// Basic HTTP Authentication, see SecurityConfiguration file for credentials
+		requestContext.put(BindingProvider.USERNAME_PROPERTY, "service");
+		requestContext.put(BindingProvider.PASSWORD_PROPERTY, "secretpassword");
 	}
 
 	@Test
