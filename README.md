@@ -1,6 +1,8 @@
 Learn SOAP Web Services (JAX-WS)
 ================================
 
+[![Continuous Integration](https://github.com/mpuening/learn-webservices-jaxws/actions/workflows/ci.yml/badge.svg)](https://github.com/mpuening/learn-webservices-jaxws/actions/workflows/ci.yml)
+
 This project contains example code to demonstrate proficiency with JAX-WS SOAP web services.
 
 Yes, SOAP isn't dead yet even as I write this 2017. It isn't unusual for a large company to buy some
