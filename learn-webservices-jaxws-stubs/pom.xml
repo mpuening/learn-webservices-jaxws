@@ -13,7 +13,7 @@
 	<parent>
 		<groupId>io.github.learnwsjaxws</groupId>
 		<artifactId>learn-webservices-jaxws</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>
 
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>com.sun.xml.ws</groupId>
 			<artifactId>jaxws-ri</artifactId>
-			<version>2.3.5</version>
+			<version>4.0.0-M4</version>
 			<type>pom</type>
 		</dependency>
 	</dependencies>
@@ -29,9 +29,9 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>com.sun.xml.ws</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
-				<version>2.6</version>
+				<version>4.0.0-M4</version>
 				<executions>
 					<execution>
 						<goals>
@@ -39,9 +39,9 @@
 						</goals>
 						<configuration>
 							<verbose>true</verbose>
-							<target>2.1</target>
+							<target>3.0</target>
 							<vmArgs>
-								<vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+								<vmArg>-Djakarta.xml.accessExternalSchema=all</vmArg>
 							</vmArgs>
 							<wsdlFiles>
 								<wsdlFile>${basedir}/src/main/resources/META-INF/services/service.wsdl</wsdlFile>

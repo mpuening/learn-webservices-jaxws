@@ -1,7 +1,7 @@
 ---
 spring:
   profiles:
-    active: local
+    default: local
 
 logging:
   level:
@@ -9,9 +9,12 @@ logging:
 
 ---
 spring:
-  profiles: local
+  config:
+    activate:    
+      on-profile: local
 
 ---
 spring:
-  profiles: unittest
-
+  config:
+    activate:    
+      on-profile: unittest
