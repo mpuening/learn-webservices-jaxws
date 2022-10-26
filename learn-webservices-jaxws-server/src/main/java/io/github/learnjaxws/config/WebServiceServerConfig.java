@@ -40,6 +40,4 @@ public class WebServiceServerConfig extends WsConfigurerAdapter {
 	public void addInterceptors(List<EndpointInterceptor> interceptors) {
 		interceptors.add(new PayloadLoggingInterceptor());
 	}
-
-	
 }
