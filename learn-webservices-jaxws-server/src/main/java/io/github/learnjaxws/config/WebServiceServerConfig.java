@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.ws.config.annotation.EnableWs;
-import org.springframework.ws.config.annotation.WsConfigurerAdapter;
+import org.springframework.ws.config.annotation.WsConfigurationSupport;
 import org.springframework.ws.server.EndpointInterceptor;
 import org.springframework.ws.server.endpoint.interceptor.PayloadLoggingInterceptor;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
@@ -20,7 +20,7 @@ import org.springframework.ws.wsdl.wsdl11.Wsdl11Definition;
  */
 @EnableWs
 @Configuration
-public class WebServiceServerConfig extends WsConfigurerAdapter {
+public class WebServiceServerConfig extends WsConfigurationSupport {
 	@Bean
 	public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(ApplicationContext applicationContext) {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();

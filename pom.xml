@@ -6,7 +6,7 @@
 
 	<groupId>io.github.learnwsjaxws</groupId>
 	<artifactId>learn-webservices-jaxws</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>learn-webservices-jaxws</name>
@@ -15,7 +15,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.8</version>
+		<version>4.0.0</version>
 		<relativePath />
 	</parent>
 
